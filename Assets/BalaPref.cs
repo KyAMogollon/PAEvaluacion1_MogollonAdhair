@@ -13,12 +13,19 @@ public class BalaPref : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        _rb.velocity = mousePos;
+        _rb.velocity = mousePos*speed;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector2.up * speed * Time.deltaTime);
+
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Enemigo")
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

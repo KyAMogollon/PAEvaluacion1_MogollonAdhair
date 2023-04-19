@@ -14,7 +14,6 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        balaPref = GetComponent<GameObject>();
     }
     private void Update() {
         Vector2 movementPlayer = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
@@ -28,9 +27,9 @@ public class PlayerController : MonoBehaviour
         Debug.DrawRay(transform.position, mouseInput.normalized * rayDistance, Color.red);
 
         if(Input.GetMouseButtonDown(0)){
-            GameObject balla =  Instantiate(balaPref, posicionDisparo.position, posicionDisparo.rotation);
+            Instantiate(balaPref, transform.position, Quaternion.identity);
         }else if(Input.GetMouseButtonDown(1)){
-            GameObject balla =  Instantiate(balaPref, posicionDisparo.position, posicionDisparo.rotation);
+            Instantiate(balaPref, transform.position, Quaternion.identity);
         }
     }
 
